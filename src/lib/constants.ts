@@ -2,18 +2,19 @@ export const BRAND_NAME = 'Byntleys Beauty Boutique'
 
 export const COLORS = {
   primary: {
-    50: '#FAF8F5',
-    100: '#F5F1E8',
+    50: '#FDF8FC',
+    100: '#F9F0F7',
     900: '#1A1614',
   },
   accent: {
-    500: '#8B7355',
-    600: '#6B5742',
+    500: '#DA6FC4',
+    600: '#CD37B1',
   },
   luxury: {
-    gold: '#D4AF37',
-    sage: '#9CAF88',
-    rose: '#E8D5D0',
+    pink: '#E7A7D7',
+    purple: '#CD37B1',
+    lavender: '#EDD2E7',
+    silver: '#C0C0C0',
   },
 } as const
 

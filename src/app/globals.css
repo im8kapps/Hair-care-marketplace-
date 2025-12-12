@@ -3,17 +3,17 @@
 @tailwind utilities;
 
 :root {
-  /* Luxury Color Palette */
-  --color-primary-50: #FAF8F5;
-  --color-primary-100: #F5F1E8;
+  /* BBB Color Palette - Pink & Purple Theme */
+  --color-primary-50: #FDF8FC;
+  --color-primary-100: #F9F0F7;
   --color-primary-900: #1A1614;
 
-  --color-accent-500: #8B7355;
-  --color-accent-600: #6B5742;
+  --color-accent-500: #DA6FC4;
+  --color-accent-600: #CD37B1;
 
-  --color-luxury-gold: #D4AF37;
-  --color-luxury-sage: #9CAF88;
-  --color-luxury-rose: #E8D5D0;
+  --color-luxury-pink: #E7A7D7;
+  --color-luxury-purple: #CD37B1;
+  --color-luxury-lavender: #EDD2E7;
 
   /* Easing Functions */
   --easing-luxury: cubic-bezier(0.22, 1, 0.36, 1);
@@ -180,10 +180,10 @@
   animation: shimmer 2s infinite linear;
   background: linear-gradient(
     to right,
-    #f5f1e8 0%,
-    #ebe3d5 20%,
-    #f5f1e8 40%,
-    #f5f1e8 100%
+    #F9F0F7 0%,
+    #F3E1EF 20%,
+    #F9F0F7 40%,
+    #F9F0F7 100%
   );
   background-size: 1000px 100%;
 }
