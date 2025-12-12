@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Luxury Color Palette */
+  --color-primary-50: #FAF8F5;
+  --color-primary-100: #F5F1E8;
+  --color-primary-900: #1A1614;
+
+  --color-accent-500: #8B7355;
+  --color-accent-600: #6B5742;
+
+  --color-luxury-gold: #D4AF37;
+  --color-luxury-sage: #9CAF88;
+  --color-luxury-rose: #E8D5D0;
+
+  /* Easing Functions */
+  --easing-luxury: cubic-bezier(0.22, 1, 0.36, 1);
+  --easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Spacing */
+  --spacing-section: 5rem;
+  --spacing-section-mobile: 3rem;
+
+  /* Shadows */
+  --shadow-luxury: 0 10px 40px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.04);
+  --shadow-lift: 0 20px 60px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.06);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-primary-50 text-primary-900 font-sans antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .shadow-luxury {
+    box-shadow: var(--shadow-luxury);
+  }
+
+  .shadow-lift {
+    box-shadow: var(--shadow-lift);
+  }
+
+  /* Custom scrollbar */
+  .scrollbar-luxury::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scrollbar-luxury::-webkit-scrollbar-track {
+    @apply bg-primary-100;
+  }
+
+  .scrollbar-luxury::-webkit-scrollbar-thumb {
+    @apply bg-accent-500 rounded-full;
+  }
+
+  .scrollbar-luxury::-webkit-scrollbar-thumb:hover {
+    @apply bg-accent-600;
+  }
+}
+
+/* Ken Burns Animation */
+@keyframes kenBurns {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Fade Up Animation */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide Up Animation */
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Slide In Animation */
+@keyframes slideIn {
+  0% {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Magnetic button effect */
+.magnetic-button {
+  transition: transform 0.2s var(--easing-luxury);
+}
+
+/* Image hover scale */
+.image-scale {
+  transition: transform 0.6s var(--easing-luxury);
+}
+
+.image-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Grayscale to color */
+.grayscale-hover {
+  filter: grayscale(0.3);
+  transition: filter 0.6s var(--easing-luxury);
+}
+
+.grayscale-hover:hover {
+  filter: grayscale(0);
+}
+
+/* Link underline animation */
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  transition: width 0.3s var(--easing-luxury);
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* Loading skeleton */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.skeleton {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(
+    to right,
+    #f5f1e8 0%,
+    #ebe3d5 20%,
+    #f5f1e8 40%,
+    #f5f1e8 100%
+  );
+  background-size: 1000px 100%;
+}
