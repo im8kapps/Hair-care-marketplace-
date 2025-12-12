@@ -36,7 +36,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <Image
-              src="/bbbLogo.png"
+              src="/images/bbbLogo.png"
               alt={BRAND_NAME}
               width={180}
               height={60}
