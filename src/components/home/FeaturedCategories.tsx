@@ -21,7 +21,7 @@ export default function FeaturedCategories() {
             Shop by Category
           </h2>
           <p className="text-lg text-primary-600 max-w-2xl mx-auto">
-            Find the perfect products for your unique hair needs
+            Find the perfect products for your unique beauty needs
           </p>
         </motion.div>
 

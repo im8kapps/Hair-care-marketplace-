@@ -5,12 +5,12 @@ import { motion } from 'framer-motion'
 import Breadcrumbs from '@/components/products/Breadcrumbs'
 import ProductGrid from '@/components/products/ProductGrid'
 import { mockProducts } from '@/data/mock-products'
-import type { Product, SortOption, CategoryType, HairType, Concern } from '@/types'
+import type { Product, SortOption, CategoryType, SkinType, Concern } from '@/types'
 
 export default function ProductsPage() {
   const [sortBy, setSortBy] = useState<SortOption>('best-selling')
   const [selectedCategories, setSelectedCategories] = useState<CategoryType[]>([])
-  const [selectedHairTypes, setSelectedHairTypes] = useState<HairType[]>([])
+  const [selectedSkinTypes, setSelectedSkinTypes] = useState<SkinType[]>([])
   const [selectedConcerns, setSelectedConcerns] = useState<Concern[]>([])
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 100])
   const [showFilters, setShowFilters] = useState(false)
@@ -24,10 +24,10 @@ export default function ProductsPage() {
       filtered = filtered.filter((p) => selectedCategories.includes(p.category))
     }
 
-    // Apply hair type filter
-    if (selectedHairTypes.length > 0) {
+    // Apply skin type filter
+    if (selectedSkinTypes.length > 0) {
       filtered = filtered.filter((p) =>
-        p.hairTypes.some((type) => selectedHairTypes.includes(type) || type === 'all')
+        p.skinTypes.some((type) => selectedSkinTypes.includes(type) || type === 'all')
       )
     }
 
@@ -64,7 +64,7 @@ export default function ProductsPage() {
     }
 
     return filtered
-  }, [sortBy, selectedCategories, selectedHairTypes, selectedConcerns, priceRange])
+  }, [sortBy, selectedCategories, selectedSkinTypes, selectedConcerns, priceRange])
 
   const toggleCategory = (category: CategoryType) => {
     setSelectedCategories((prev) =>
@@ -72,9 +72,9 @@ export default function ProductsPage() {
     )
   }
 
-  const toggleHairType = (hairType: HairType) => {
-    setSelectedHairTypes((prev) =>
-      prev.includes(hairType) ? prev.filter((h) => h !== hairType) : [...prev, hairType]
+  const toggleSkinType = (skinType: SkinType) => {
+    setSelectedSkinTypes((prev) =>
+      prev.includes(skinType) ? prev.filter((h) => h !== skinType) : [...prev, skinType]
     )
   }
 
@@ -86,13 +86,13 @@ export default function ProductsPage() {
 
   const clearAllFilters = () => {
     setSelectedCategories([])
-    setSelectedHairTypes([])
+    setSelectedSkinTypes([])
     setSelectedConcerns([])
     setPriceRange([0, 100])
   }
 
   const activeFilterCount =
-    selectedCategories.length + selectedHairTypes.length + selectedConcerns.length
+    selectedCategories.length + selectedSkinTypes.length + selectedConcerns.length
 
   return (
     <div className="min-h-screen bg-primary-50">
@@ -112,7 +112,7 @@ export default function ProductsPage() {
             All Products
           </h1>
           <p className="text-lg text-primary-600">
-            Discover our complete collection of premium hair care
+            Discover our complete collection of premium beauty products
           </p>
         </motion.div>
 
@@ -171,7 +171,7 @@ export default function ProductsPage() {
                   Category
                 </h3>
                 <div className="space-y-2">
-                  {(['shampoo', 'conditioner', 'treatment', 'styling'] as CategoryType[]).map((category) => (
+                  {(['skincare', 'makeup', 'haircare', 'bodycare', 'fragrance', 'accessories'] as CategoryType[]).map((category) => (
                     <label key={category} className="flex items-center cursor-pointer group">
                       <input
                         type="checkbox"
@@ -180,29 +180,29 @@ export default function ProductsPage() {
                         className="w-4 h-4 text-accent-500 border-primary-300 rounded focus:ring-accent-500"
                       />
                       <span className="ml-3 text-sm text-primary-700 group-hover:text-primary-900 capitalize">
-                        {category}
+                        {category === 'bodycare' ? 'Body Care' : category}
                       </span>
                     </label>
                   ))}
                 </div>
               </div>
 
-              {/* Hair Type Filter */}
+              {/* Skin Type Filter */}
               <div className="mb-6">
                 <h3 className="text-sm font-sans font-semibold uppercase tracking-wider text-primary-900 mb-3">
-                  Hair Type
+                  Skin Type
                 </h3>
                 <div className="space-y-2">
-                  {(['straight', 'wavy', 'curly', 'coily'] as HairType[]).map((hairType) => (
-                    <label key={hairType} className="flex items-center cursor-pointer group">
+                  {(['normal', 'dry', 'oily', 'combination', 'sensitive'] as SkinType[]).map((skinType) => (
+                    <label key={skinType} className="flex items-center cursor-pointer group">
                       <input
                         type="checkbox"
-                        checked={selectedHairTypes.includes(hairType)}
-                        onChange={() => toggleHairType(hairType)}
+                        checked={selectedSkinTypes.includes(skinType)}
+                        onChange={() => toggleSkinType(skinType)}
                         className="w-4 h-4 text-accent-500 border-primary-300 rounded focus:ring-accent-500"
                       />
                       <span className="ml-3 text-sm text-primary-700 group-hover:text-primary-900 capitalize">
-                        {hairType}
+                        {skinType}
                       </span>
                     </label>
                   ))}
@@ -215,7 +215,7 @@ export default function ProductsPage() {
                   Concerns
                 </h3>
                 <div className="space-y-2">
-                  {(['dryness', 'frizz', 'damage', 'color-protection', 'volume', 'scalp-health'] as Concern[]).map((concern) => (
+                  {(['anti-aging', 'hydration', 'brightening', 'acne', 'sensitivity', 'fine-lines', 'dark-spots', 'dryness'] as Concern[]).map((concern) => (
                     <label key={concern} className="flex items-center cursor-pointer group">
                       <input
                         type="checkbox"

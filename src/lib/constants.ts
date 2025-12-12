@@ -52,7 +52,7 @@ export const TRUST_SIGNALS = [
 
 export const NAVIGATION_LINKS = [
   { name: 'Shop All', href: '/products' },
-  { name: 'By Hair Type', href: '/products?filter=hair-type' },
+  { name: 'Categories', href: '/products?filter=categories' },
   { name: 'Brands', href: '/brands' },
   { name: 'About', href: '/about' },
 ] as const
@@ -68,7 +68,7 @@ export const FOOTER_LINKS = {
     { name: 'Contact Us', href: '/contact' },
     { name: 'Shipping & Returns', href: '/shipping' },
     { name: 'FAQ', href: '/faq' },
-    { name: 'Hair Care Guide', href: '/guide' },
+    { name: 'Beauty Guide', href: '/guide' },
   ],
   legal: [
     { name: 'Privacy Policy', href: '/privacy' },

@@ -1,14 +1,16 @@
-export type CategoryType = 'shampoo' | 'conditioner' | 'treatment' | 'styling' | 'tools'
+export type CategoryType = 'skincare' | 'makeup' | 'haircare' | 'bodycare' | 'fragrance' | 'accessories'
 
-export type HairType = 'straight' | 'wavy' | 'curly' | 'coily' | 'all'
+export type SkinType = 'normal' | 'dry' | 'oily' | 'combination' | 'sensitive' | 'all'
 
 export type Concern =
+  | 'anti-aging'
+  | 'hydration'
+  | 'brightening'
+  | 'acne'
+  | 'sensitivity'
+  | 'fine-lines'
+  | 'dark-spots'
   | 'dryness'
-  | 'frizz'
-  | 'damage'
-  | 'color-protection'
-  | 'volume'
-  | 'scalp-health'
 
 export interface ProductImage {
   main: string
@@ -19,9 +21,10 @@ export interface ProductImage {
 export interface ProductAttributes {
   size: string
   vegan: boolean
-  sulfateFree: boolean
-  crueltyfree: boolean
+  crueltyFree: boolean
   organic: boolean
+  paraben_free: boolean
+  natural: boolean
 }
 
 export interface ProductRating {
@@ -40,7 +43,7 @@ export interface Product {
   compareAtPrice?: number
   images: ProductImage
   category: CategoryType
-  hairTypes: HairType[]
+  skinTypes: SkinType[]
   concerns: Concern[]
   attributes: ProductAttributes
   rating: ProductRating
@@ -57,7 +60,7 @@ export interface Category {
   slug: string
   description: string
   image: string
-  hairTypes?: HairType[]
+  productTypes?: CategoryType[]
 }
 
 export interface Testimonial {
@@ -66,7 +69,7 @@ export interface Testimonial {
   rating: number
   text: string
   productName?: string
-  hairType?: HairType
+  productCategory?: CategoryType
   verified: boolean
   location?: string
 }
@@ -78,13 +81,14 @@ export interface CartItem {
 
 export interface FilterOptions {
   categories: CategoryType[]
-  hairTypes: HairType[]
+  skinTypes: SkinType[]
   concerns: Concern[]
   priceRange: [number, number]
   inStock: boolean
   vegan?: boolean
-  sulfateFree?: boolean
+  crueltyFree?: boolean
   organic?: boolean
+  natural?: boolean
 }
 
 export type SortOption = 'best-selling' | 'price-low-high' | 'price-high-low' | 'newest' | 'top-rated'

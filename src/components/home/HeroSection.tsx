@@ -13,7 +13,7 @@ export default function HeroSection() {
       <div className="absolute inset-0">
         <Image
           src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=1920&h=1080&fit=crop"
-          alt="Luxury hair care products"
+          alt="Luxury beauty products"
           fill
           priority
           className="object-cover animate-ken-burns"
@@ -33,9 +33,9 @@ export default function HeroSection() {
           }}
           className="text-5xl md:text-7xl lg:text-8xl font-serif font-light text-white mb-6 leading-tight tracking-tight text-balance"
         >
-          Transform Your
+          Affordable Beauty
           <br />
-          Hair Care Ritual
+          That Never Fades
         </motion.h1>
 
         <motion.p
@@ -48,7 +48,7 @@ export default function HeroSection() {
           }}
           className="text-xl md:text-2xl text-white/90 mb-10 font-light leading-relaxed max-w-2xl mx-auto"
         >
-          Discover premium, ethically-sourced products crafted for every hair type
+          Discover premium, ethically-sourced beauty products for every need
         </motion.p>
 
         <motion.div
