@@ -142,9 +142,19 @@ export default function ProductCard({ product }: ProductCardProps) {
                   Vegan
                 </span>
               )}
-              {product.attributes.sulfateFree && (
+              {product.attributes.crueltyFree && (
                 <span className="text-xs px-2 py-1 bg-primary-100 text-primary-700 rounded-full">
-                  Sulfate-Free
+                  Cruelty-Free
+                </span>
+              )}
+              {product.attributes.paraben_free && (
+                <span className="text-xs px-2 py-1 bg-primary-100 text-primary-700 rounded-full">
+                  Paraben-Free
+                </span>
+              )}
+              {product.attributes.organic && (
+                <span className="text-xs px-2 py-1 bg-primary-100 text-primary-700 rounded-full">
+                  Organic
                 </span>
               )}
             </div>
