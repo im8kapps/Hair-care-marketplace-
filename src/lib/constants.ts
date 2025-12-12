@@ -1,4 +1,4 @@
-export const BRAND_NAME = 'Luxe Hair Care'
+export const BRAND_NAME = 'Byntleys Beauty Boutique'
 
 export const COLORS = {
   primary: {

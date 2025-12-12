@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { UserIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import SearchBar from '@/components/shared/SearchBar'
 import CartIcon from '@/components/shared/CartIcon'
@@ -34,9 +35,14 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
-            <h1 className="text-2xl md:text-3xl font-serif font-semibold text-primary-900 tracking-tight">
-              {BRAND_NAME}
-            </h1>
+            <Image
+              src="/bbbLogo.png"
+              alt={BRAND_NAME}
+              width={180}
+              height={60}
+              className="h-12 md:h-14 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
